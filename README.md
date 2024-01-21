@@ -9,6 +9,6 @@ How to use:
 
 
 Credits: 
-Sunki for finding the method to patch
-Exception for this patched kext
-Apple for the AppleBCM5701Family.kext
+Sunki for finding the method to patch.
+Exception for this patched kext.
+Apple for the AppleBCM5701Family.kext.
