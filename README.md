@@ -1,6 +1,6 @@
 # ModifiedAppleBCM5701Family
 
-This is a modified AppleBCM501Family.kext by **Exception** from applelife.ru https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-8
+This is a modified AppleBCM501Family.kext by **Exception** from https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-8#post-930901
 
 How to use:
 1. Remove existing FakePCIID kexts, and device-id spoof.
