@@ -5,7 +5,7 @@ AppleBCM5701Family.kext from Catalina, patched by **[Exception](https://www.appl
 
 How to use:
 1. Remove existing FakePCIID kexts, Kernel -> Patch entry for AppleBCM5701Family, and device-id spoof under Device Properties.
-2. <s>Add your device-id in the kext's Info.plist.</s>
+2. Add your device-id in the kext's Info.plist if not included.
 
    If you are multi-booting, you could keep FakePCIID kexts by setting its MaxKernel to **19.99.9**, and MinKernel **20.0.0** for AppleBCM577xxEthernet.
 
