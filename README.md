@@ -13,5 +13,5 @@ How to use:
 
 Credits: 
 - **[Sunki](https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-4#post-564218)** for the patching method.
-- **[Exception](https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-8#post-930901)** for this modified kext.
+- **[Exception](https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-8#post-930901)** for this patched kext.
 - Apple for the AppleBCM5701Family.kext.
