@@ -19,7 +19,7 @@ How to use:
 
 
 #### Cosmetic / Optional
-If you are using the patch and device property injection, it will show a model name of `57765` in system report - this is because of device-id spoofing. If you don't like that, just keep using FakePCIID kexts.
+If you are using the patch and device property injection, it will show a model name of `57765` in system report - this is because of device-id spoofing. If you don't like that, just keep using FakePCIID kexts instead of doing the kernel -> patch and device properties injection.
 
 Credits: 
 - **[Sunki](https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-4#post-564218)** for the patching method.
