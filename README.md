@@ -9,7 +9,7 @@ How to use:
 
 
 > [!TIP]
-> If you are multi-booting pre-Big Sur, delete FakePCIID kexts and activate the `Broadcom BCM57785 Patch` in your config.plist, this will load the native kexts. If you have deleted it before, copy the `Broadcom BCM57785 Patch` from the default config.plist from OpencorePkg, then add these device properties for your ethernet:
+> If you are multi-booting pre-Big Sur, you COULD delete FakePCIID kexts and activate the `Broadcom BCM57785 Patch` in your config.plist, this will also load the native kexts just like what FakePCIID do. If you have deleted it before, copy the `Broadcom BCM57785 Patch` from the default config.plist from OpencorePkg, then add these device properties for your ethernet:
 
 |Key*|Value|Type|
 |-|-|-|
@@ -17,8 +17,9 @@ How to use:
 |device-id|B4160000|Data|
 |built-in|01|Data|
 
+
 #### Cosmetic / Optional
-If you are using the patch and device property injection, it will show a model name of `57765` in system report - this is because of device-id spoofing. Follow the guide in the applelife.ru link to rename the model name in sysreport. Also, Hackintool does not base the `model` name from the IOReg, but from its own lists of data.
+If you are using the patch and device property injection, it will show a model name of `57765` in system report - this is because of device-id spoofing. If you don't like that, just keep using FakePCIID kexts.
 
 Credits: 
 - **[Sunki](https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-4#post-564218)** for the patching method.
