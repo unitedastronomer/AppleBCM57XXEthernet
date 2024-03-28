@@ -1,6 +1,6 @@
 # AppleBCM57XXEthernet
 
-This is a AppleBCM5701Family.kext taken from Catalina, patched by **[Exception](https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-8#post-930901)**. This was taken from an Applelife.ru forum, the original thread is in Russian, but someone had made an English explanation of how it works [here](https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-9#post-1031837). This will only work if your specific ethernet model worked under Catalina!
+This is an AppleBCM5701Family.kext taken from Catalina, patched by **[Exception](https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-8#post-930901)**. This was taken from an Applelife.ru forum, the original thread is in Russian, but someone had made an English explanation of how it works [here](https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-9#post-1031837). This will only work if your specific ethernet model worked under Catalina!
 
 How to use:
 1. Remove existing FakePCIID kexts.
