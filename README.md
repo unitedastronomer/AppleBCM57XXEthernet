@@ -1,6 +1,6 @@
 # AppleBCM57XXEthernet
 
-This is a patched kext taken from Catalina for enabling Broadcom ethernet under Big Sur and newer. This was taken from a thread in Apple Life, the original thread is in Russian, but someone had made a really good explanation in English [here](https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-9#post-1031837) ([archived](https://web.archive.org/web/20240407122311/https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-9#post-1031837)). This will only work if your specific ethernet model worked under Catalina!
+This is the **AppleBCM5701Ethernet.kext** taken from Catalina, but  patched to work for Big Sur and newer. This kext was originally patched and uploaded by **[Exception](https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-8#post-930901)** in Apple Life. The original thread is in Russian, but someone had made a well written explanation about it in English [here](https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-9#post-1031837) ([archived](https://web.archive.org/web/20240407122311/https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-9#post-1031837)). 
 
 
 
@@ -16,12 +16,16 @@ You could also apply a Kernel -> Patch to show the correct IOReg model in System
 
 Ex. 3 **_5_** 3 **_7_** 3 **_7_** 3 **_6_** 3 **_5_** -> 3 **_5_** 3 **_7_** 3 **_7_** 3 **_8_** 3 **_6_**
 
-I’m only re-uploading it here because I noticed that the longer the attachment stays in that thread, the more likely it is to get automatically  deleted.
 # 
+<br>
+I’m only re-uploading it here because I noticed that the longer the attachment stays in that thread, the more likely it will automatically get deleted.
+
+# 
+
 <br>
 <br>
 
-Alternatively, you could use the **CatalinaBCM5701Ethernet.kext** provided in OCLP repo, and add these to Kernel -> Patch:
+Alternatively, you could also use the [**CatalinaBCM5701Ethernet.kext**](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Ethernet) provided in OCLP repo, and then add these to Kernel -> Patch:
 
 |Identifier*|Find|Replace|minKernel|maxKernel| Comment |
 |-|-|-|-|-|-|
@@ -44,7 +48,11 @@ You could also apply a Kernel -> Patch to show the correct IOReg model in System
 
 #
 ### macOS Catalina and earlier
-For Catalina and older, it is possible to use either the (1) FakePCIID - the easy way, or (2) the technical way - using the BCM57785 Patch from the sample.plist of Opencorepkg - in combination with device-id, and compatible device property injection of a native model (BCM57765):
+For Catalina and older, it is possible to use either the: <Br>
+1.  The easy way: [FakePCIID and FakePCIID_BCM57XX_as_BCM57765.kext](https://github.com/RehabMan/OS-X-Fake-PCI-ID), or;
+2.  The technical way: using the `Broadcom BCM57785 patch` from the sample.plist of Opencorepkg - in combination with device-id, and compatible device property injection of a native model (BCM57765):
+
+> Don't mind the naming of the patch in the sample.plist. It is named "Broadcom BCM57785 patch" because it was originally made for BCM57785, but it should still work with other model supported by the native kext (via spoofing).
 
 |Key*|Value|Type|
 |-|-|-|
