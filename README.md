@@ -9,7 +9,7 @@ How to use: <br>
 2. Set MinKernel to **20.0.0**. <br>
 
 #### Cosmetic
-You could also apply a Kernel -> Patch to show the correct IOReg model in System Report.
+You could also apply a Kernel -> Patch to show the correct model in System Report.
 |Identifier*|Find|Replace|minKernel|maxKernel| Comment |
 |-|-|-|-|-|-|
 |com.apple.iokit.AppleBCM57**XX**Ethernet | 35373736 35 | 35373738 36 | 20.0.0 |  | IOReg model 57765 -> 57786 |
@@ -39,7 +39,7 @@ Add these to device properties:
 |built-in|01|Data|
 
 #### Cosmetic
-You could also apply a Kernel -> Patch to show the correct IOReg model in System Report.
+You could also apply a Kernel -> Patch to show the correct model in System Report.
 |Identifier*|Find|Replace|minKernel|maxKernel| Comment |
 |-|-|-|-|-|-|
 |com.apple.iokit.CatalinaBCM5701Ethernet | 35373736 35 | 35373738 36 | 20.0.0 |  | IOReg model 57765 -> 57786 (Cosmetic) |
@@ -61,11 +61,15 @@ For Catalina and older, it is possible to use either the: <Br>
 |built-in|01|Data|
 
 #### Cosmetic
-You could also apply a Kernel -> Patch to show the correct IOReg model in System Report.
+You could also apply a Kernel -> Patch to show the correct model in System Report.
 |Identifier*|Find|Replace|minKernel|maxKernel| Comment |
 |-|-|-|-|-|-|
 |com.apple.iokit.AppleBCM5701Ethernet | 35373736 35 | 35373738 36 |  | 19.99.9 | IOReg model 57765 -> 57786 (Cosmetic) |
 
+
+#
+
+> Using **CatalinaBCM5701Ethernet.kext** and **Broadcom BCM57785 patc**h will show the device-id as the one you spoofed (14e4,16b4/BCM577**65**), use the **AppleBCM57XXEthernet.kext** or **FakePCIID** instead if you don't want that.
 
 
 
