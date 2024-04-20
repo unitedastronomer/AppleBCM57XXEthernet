@@ -9,7 +9,7 @@ How to use: <br>
 2. Set MinKernel to **20.0.0**. <br>
 
 #### Cosmetic
-You could also apply a **Kernel -> Patch** to show the correct model in System Report.
+This is optional. You could also apply a **Kernel -> Patch** to show the correct model in System Report.
 |Identifier*|Find|Replace|minKernel|maxKernel| Comment |
 |-|-|-|-|-|-|
 |com.apple.iokit.AppleBCM57**XX**Ethernet | 35373736 35 | 35373738 36 | 20.0.0 |  | IOReg model 57765 -> 57785 |
@@ -27,19 +27,26 @@ I’m only re-uploading it here because I noticed that the longer the attachment
 
 Alternatively, you could also use the [**CatalinaBCM5701Ethernet.kext**](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Ethernet) provided in OCLP repo, and then add these to **Kernel -> Patch**:
 
+
 |Identifier*|Find|Replace|minKernel|maxKernel| Comment |
 |-|-|-|-|-|-|
 |com.apple.iokit.CatalinaBCM5701Ethernet | E80000FF FF668983 00050000 | B8B41600 00668983 00050000 | 20.0.0 |  | Broadcom BCM577XX Patch |
+> This patch is just the same as the `Broadcom BCM57785 Patch` (from the sample.plist of Opencorepkg to load the native kext on Catalina and earlier), but **finds/replace the whole series of hex** without the base and hex masking.
 
-Add these to device properties:
+> Even this kext is from Catalina, and in theory the `Broadcom BCM57785 Patch` (from the sample.plist of Opencorepkg) should still be applicable as it was from Catalina anyway, however in my attempt it did not work. Opencore probably does not support masking on injected kexts, hence why I decided to try to find/replace the whole thing instead, and it somehow worked that way.
+
+This is optional. I've had these device properties in my config.plist since the beginning I used this kext, I tried to remove them and the kext still loaded. If that wasn't the case for you, then you may need to add them:
+
+
 |Key*|Value|Type|
 |-|-|-|
 |compatible |pci14e4,16b4 |String |
 |device-id|B4160000|Data|
 |built-in|01|Data|
 
+
 #### Cosmetic
-You could also apply a **Kernel -> Patch** to show the correct model in System Report.
+This is optional. You could also apply a **Kernel -> Patch** to show the correct model in System Report.
 |Identifier*|Find|Replace|minKernel|maxKernel| Comment |
 |-|-|-|-|-|-|
 |com.apple.iokit.CatalinaBCM5701Ethernet | 35373736 35 | 35373738 36 | 20.0.0 |  | IOReg model 57765 -> 57785 (Cosmetic) |
@@ -61,7 +68,7 @@ For Catalina and older, it is possible to use either the: <Br>
 > Don't mind the naming of the patch in the sample.plist. It is named "Broadcom BCM57785 patch" because it was originally made for BCM57785, but it should still work with other model supported by the native kext (via spoofing).
 
 #### Cosmetic
-You could also apply a **Kernel -> Patch** to show the correct model in System Report.
+This is optional. You could also apply a **Kernel -> Patch** to show the correct model in System Report.
 |Identifier*|Find|Replace|minKernel|maxKernel| Comment |
 |-|-|-|-|-|-|
 |com.apple.iokit.AppleBCM5701Ethernet | 35373736 35 | 35373738 36 |  | 19.99.9 | IOReg model 57765 -> 57785 (Cosmetic) |
@@ -69,7 +76,7 @@ You could also apply a **Kernel -> Patch** to show the correct model in System R
 Ex. 3 **_5_** 3 **_7_** 3 **_7_** 3 **_6_** 3 **_5_** -> 3 **_5_** 3 **_7_** 3 **_7_** 3 **_8_** 3 **_5_**
 #
 
-> If you use **CatalinaBCM5701Ethernet.kext** with/or the **Broadcom BCM57785 patch**, the device-id  will show as the spoofed one (14e4,16b4/BCM577**65**) - as these methods require spoofing the ethernet into a native model to make the kext load. With **AppleBCM57XXEthernet.kext**, it was patched to always return a supported model so it does not need any spoofing.
+> If you use any of the following that requires device properties injection, the device-id  will show as the spoofed one (14e4,16b4/BCM577**65**) - as these methods require spoofing the ethernet into a native model to make the kext load.
 
 Credits: 
 - **[Exception](https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-8#post-930901)** for this patched kext
