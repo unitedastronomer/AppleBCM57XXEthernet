@@ -2,7 +2,7 @@
 This is the **AppleBCM5701Ethernet.kext** taken from Catalina, patched to work for Big Sur and newer.
 * This kext was patched and uploaded by **[Exception](https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-8#post-930901)** in Apple Life. The original thread is in Russian, but someone had made a well written explanation about it in English [here](https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-9#post-1031837) ([archived](https://web.archive.org/web/20240407122311/https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-9#post-1031837)). 
 
-
+Download the kext [here](https://github.com/unitedastronomer/AppleBCM57XXEthernet/releases/tag/Kext1). Note that this will only work if your specific ethernet model worked with FakePCIID in Catalina.
 
 #### How to use: 
 1. Add your device-id in the kext's Info.plist if not included. <br>
@@ -30,7 +30,7 @@ Add these to **Kernel -> Patch** AS IT IS:
 
 The purpose of this kernel patch is to bypass the hardware device ID check in the binary code of the CatalinaBCM5701Ethernet kext. The AppleBCM57XXEthernet kext has also been patched in a similar manner. Both CatalinaBCM5701Ethernet and AppleBCM57XXEthernet kexts have already been patched to prevent conflicts with the native AppleBCM5701Ethernet kext in the system (S/L/E), but CatalinaBCM5701Ethernet was originally intended for use on real Macs, and therefore did not require patching out the device ID check. Hence, we patch it ourselves to enable its use on non-Mac systems.
   
-* This patch is just the same as the `Broadcom BCM57785 Patch` from the sample.plist of Opencorepkg, but finds/replace the **whole** series of hex instead **without the base and hex mask**. In theory, the OC's `Broadcom BCM57785 Patch` should still be applicable to this kext as it was from Catalina anyway, however in my attempt it did not work. Opencore probably does not support masking on injected kexts. I had raised an [issue](https://www.github.com/acidanthera/bugtracker/issues/2394#issuecomment-2042591242), and they had recommended me to use the patched one posted at the same [thread](https://applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-8#post-930901) where I found the kext.
+* This patch is just the same as the `Broadcom BCM57785 Patch` from the sample.plist of Opencorepkg, but finds/replace the **whole** series of hex instead **without the base and hex mask**. In theory, the OC's `Broadcom BCM57785 Patch` should still be applicable to this kext as it was from Catalina anyway, however in my attempt it did not work. Opencore probably does not support masking on injected kexts. I had raised an [issue](https://www.github.com/acidanthera/bugtracker/issues/2394#issuecomment-2042591242) about it, and had recommended me to use the patched one instead that was posted at the same [thread](https://applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-8#post-930901) where I found the `AppleBCM57XXEthernet`.
 
 
 This is optional. I've had these device properties in my config.plist since the beginning I used this kext, I tried to remove them and the kext still loaded.  Do not inject your real device-id, we will need to spoof it to a natively supported one, copy the following as it is:
