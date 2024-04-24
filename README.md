@@ -1,5 +1,4 @@
 # AppleBCM57XXEthernet
-
 This is the **AppleBCM5701Ethernet.kext** taken from Catalina, patched to work for Big Sur and newer.
 * This kext was patched and uploaded by **[Exception](https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-8#post-930901)** in Apple Life. The original thread is in Russian, but someone had made a well written explanation about it in English [here](https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-9#post-1031837) ([archived](https://web.archive.org/web/20240407122311/https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-9#post-1031837)). 
 
@@ -31,7 +30,7 @@ Add these to **Kernel -> Patch** AS IT IS:
 
 The purpose of this kernel patch is to bypass the hardware device ID check in the binary code of the CatalinaBCM5701Ethernet kext. The AppleBCM57XXEthernet kext has also been patched in a similar manner. Both CatalinaBCM5701Ethernet and AppleBCM57XXEthernet kexts have already been patched to prevent conflicts with the native AppleBCM5701Ethernet kext in the system (S/L/E), but CatalinaBCM5701Ethernet was originally intended for use on real Macs, and therefore did not require patching out the device ID check. Hence, we patch it ourselves to enable its use on non-Mac systems.
   
-* This patch is just the same as the `Broadcom BCM57785 Patch` from the sample.plist of Opencorepkg, but finds/replace the **whole** series of hex instead **without the base and hex mask**. In theory, the OC's `Broadcom BCM57785 Patch` should still be applicable to this kext as it was from Catalina anyway, however in my attempt it did not work. Opencore probably does not support masking on injected kexts.
+* This patch is just the same as the `Broadcom BCM57785 Patch` from the sample.plist of Opencorepkg, but finds/replace the **whole** series of hex instead **without the base and hex mask**. In theory, the OC's `Broadcom BCM57785 Patch` should still be applicable to this kext as it was from Catalina anyway, however in my attempt it did not work. Opencore probably does not support masking on injected kexts. I had raised an [issue](https://www.github.com/acidanthera/bugtracker/issues/2394#issuecomment-2042591242), and they had recommended me to use the patched one posted at the same [thread](https://applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-8#post-930901) where I found the kext.
 
 
 This is optional. I've had these device properties in my config.plist since the beginning I used this kext, I tried to remove them and the kext still loaded.  Do not inject your real device-id, we will need to spoof it to a natively supported one, copy the following as it is:
@@ -77,7 +76,7 @@ This is optional. You could also apply a **Kernel -> Patch** to show the correct
 
 If you use any of the aforementioned that needed device properties injection, the device-id  will show as the spoofed one (14e4,16b4/BCM577**65**) - as these methods require spoofing the ethernet into a native model to make the kext load. 
 
-If you get confuse by the naming of the kext, here's the difference:
+Again, if you get confused by the naming of the kext, here's the difference:
 * `AppleBCM5701Ethernet` - Native/"Vanilla", it's in the System/Library/Extensions
 * `CatalinaBCM5701Ethernet` - from OCLP, it's the `AppleBCM5701Ethernet` from Catalina, patched to not conflict with the native kext as it is needed to be re-injected on Big Sur and newer on older macs. ([ref](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/45))
 * `AppleBCM57XXEthernet` - from Apple Life, same as `CatalinaBCM5701Ethernet` but a function that checks the hardware device-id is patched, to be used in non-macs - where their Broadcom ethernet is supported by the kext. ([ref](https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-8#post-930901))
@@ -85,8 +84,8 @@ If you get confuse by the naming of the kext, here's the difference:
 The only reason we need to reinject the older version of the kext is because it was heavily rewritten in Big Sur, and some support was also dropped. As you can see, the OCLP had the need to reinject the kext on older Macs that had Broadcom Ethernet. 
 
 Credits: 
+- **[Sunki](https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-8#post-930901)** for coming up with the patches - that was used for the `AppleBCM57XXEthernet`
 - **[Exception](https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-8#post-930901)** for this patched kext
 - **[Andrey1970AppleLife](https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-9#post-1031837)** for Cosmetic patch
 - Dortania for CatalinaBCM5701Ethernet
-- Acidanthera for the Kernel Patches
-
+- Acidanthera/Sunki for the Kernel Patches
