@@ -1,6 +1,3 @@
-Follow this instead https://github.com/5T33Z0/OC-Little-Translated/issues/112
-
-<details>
 
 # AppleBCM57XXEthernet
 This is the **AppleBCM5701Ethernet.kext** taken from Catalina, patched to work for Big Sur and newer.
@@ -96,5 +93,3 @@ Credits:
 - **[Andrey1970AppleLife](https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-9#post-1031837)** for Cosmetic patch
 - Dortania for CatalinaBCM5701Ethernet
 - Acidanthera/Sunki for the Kernel Patches
-
-</detais>
