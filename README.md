@@ -36,6 +36,8 @@ Add these device properties. Do not inject your real device-id, we will to spoof
 |device-id|B4160000|Data|
 |built-in|01|Data|
 
+Or you could try adding your device-id inside the info.plist instead, but I have not tested it.
+
 #### Cosmetic
 This is optional. You could also apply a **Kernel -> Patch** to show the correct model in System Report, edit accordingly to match your model.
 |Identifier*|Find|Replace|minKernel| Comment |
