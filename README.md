@@ -41,7 +41,7 @@ This is optional. You could also apply a **Kernel -> Patch** to show the correct
 
 3 <kbd>5</kbd> 3 <kbd>7</kbd> 3 <kbd>7</kbd> 3 <kbd>**6**</kbd> 3 <kbd>**5**</kbd> -> 3 <kbd>5</kbd> 3 <kbd>7</kbd> 3 <kbd>7</kbd> 3 <kbd>**8**</kbd> 3 <kbd>**5**</kbd>
 
-You could use [HexFriend](http://hexfiend.com) to find and replace these values instead of adding theme on Kernel -> Patch.
+You could use [HexFriend](http://hexfiend.com) to find and replace these values instead of adding them on Kernel -> Patch.
 
 Credits: 
 - **[Sunki](https://www.applelife.ru/threads/patching-applebcm5701ethernet-kext.27866/page-8#post-930901)** for coming up with the patches - that was used for the `AppleBCM57XXEthernet`
